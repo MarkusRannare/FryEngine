@@ -1,0 +1,10 @@
+struct VS_OUTPUT
+{
+    float4 Position   : POSITION;   // vertex position 
+    float4 Diffuse    : COLOR0;     // vertex diffuse color
+};
+
+float4 main( in VS_OUTPUT VS_Out ) : COLOR
+{
+	return VS_Out.Diffuse;
+}
