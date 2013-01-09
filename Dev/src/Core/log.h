@@ -5,6 +5,9 @@
 #pragma once
 #endif // #ifdef WIN32
 
+// for va_list
+#include <cstdarg>
+
 #include "log_types.h"
 
 #if FRY_SHIPPING
@@ -13,6 +16,8 @@
 	#define debugf log::Logf
 #endif
 
+// @TODO: Move these to a better place
+// @TODO: Make platform independent logs and move these to a implementation dependent location
 #define LOG_FOREGROUND_BLUE			0x0001
 #define LOG_FOREGROUND_GREEN		0x0002
 #define LOG_FOREGROUND_RED			0x0004

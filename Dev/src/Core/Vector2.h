@@ -1,4 +1,5 @@
 #ifndef FRYCORE_VECTOR2_H
+#define FRYCORE_VECTOR2_H
 
 #ifdef WIN32
 #pragma once

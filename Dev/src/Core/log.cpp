@@ -1,4 +1,5 @@
 #include "Log.h"
+#include "log_private_types.h"
 
 #include "System.h"
 #include "string_stream.h"

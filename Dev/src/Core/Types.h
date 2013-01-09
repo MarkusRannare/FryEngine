@@ -22,18 +22,6 @@
 	#error Pathseparator not defined
 #endif
 
-/*#ifndef FALSE
-	#define FALSE 0
-	#define TRUE !FALSE
-#else
-	#undef FALSE
-	#define FALSE 0
-	#ifdef TRUE
-		#undef TRUE
-	#endif
-	#define TRUE !FALSE
-#endif*/
-
 // Windows (MSVS specific) types
 #ifdef _MSC_VER
 	typedef __int64				s64;
@@ -81,10 +69,6 @@
 
 // Platform independent aliases
 
-// Should this be added? Some are more comfortable with it,
-// but a standard would be good too
-//typedef u8				BYTE;
-
 #ifdef WIN32
 	#define UNUSED( x ) (void*)x
 #else
@@ -93,9 +77,6 @@
 
 // <BitsquidFoundation>
 #include <stdint.h>
-
-// Can't use this in C++0x, as alignof is a reserved keyword there
-#include <xkeycheck.h>
 #ifndef alignof
 	#define alignof(x) __alignof(x)
 #endif

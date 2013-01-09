@@ -7,7 +7,7 @@
 
 #include "Build.h"
 
-#ifdef WIN32
+#if WINDOWS
 	#define TOGGLE_BREAKPOINT() \
 		__asm \
 		{ \
@@ -15,6 +15,6 @@
 		}
 #else
 	#error TOGGLE_BREAKPOINT isn't defined for the current platform
-#endif // #ifdef WIN32
+#endif // #ifdef WINDOWS
 
 #endif

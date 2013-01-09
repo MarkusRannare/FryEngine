@@ -139,6 +139,7 @@
     <ClInclude Include="HighPerfTimer.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="log_channel.h" />
+    <ClInclude Include="log_private_types.h" />
     <ClInclude Include="log_types.h" />
     <ClInclude Include="math_types.h" />
     <ClInclude Include="memory.h" />

@@ -1,8 +1,7 @@
 #include "FileWriter.h"
 
 #include <Core/Assert.h>
-
-using namespace foundation;
+#include <Core/Types.h>
 
 namespace fry_engine
 {
