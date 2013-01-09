@@ -5,11 +5,6 @@
 #pragma once
 #endif // #ifdef WIN32
 
-namespace fry_core
-{
-	class URL;
-}
-
 namespace fry_engine
 {
 	class IExec
