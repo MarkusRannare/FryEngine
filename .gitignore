@@ -26,3 +26,5 @@ _ReSharper*/
 *.opensdf
 *.sdf
 *.ipch
+#Ignore files in intermediate directory
+Dev/intermediate/*

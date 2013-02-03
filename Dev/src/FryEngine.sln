@@ -38,6 +38,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SnowGame", "SnowGame\SnowGa
 		{3432A27F-EA40-4623-8018-70AF5C371258} = {3432A27F-EA40-4623-8018-70AF5C371258}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fry_script", "fry_script\fry_script.vcxproj", "{7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45}"
+	ProjectSection(ProjectDependencies) = postProject
+		{23338A58-9FFF-4282-BE80-6ADE06A9F648} = {23338A58-9FFF-4282-BE80-6ADE06A9F648}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fry_script_test", "fry_script_test\fry_script_test.vcxproj", "{97E8EAAA-7115-406C-9F98-DD88CAB931F2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45} = {7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -91,6 +101,18 @@ Global
 		{2857254F-1741-4741-B7CD-845C3B23735A}.Release|Win32.Build.0 = Release|Win32
 		{2857254F-1741-4741-B7CD-845C3B23735A}.Shipping|Win32.ActiveCfg = Shipping|Win32
 		{2857254F-1741-4741-B7CD-845C3B23735A}.Shipping|Win32.Build.0 = Shipping|Win32
+		{7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45}.Debug|Win32.Build.0 = Debug|Win32
+		{7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45}.Release|Win32.ActiveCfg = Release|Win32
+		{7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45}.Release|Win32.Build.0 = Release|Win32
+		{7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45}.Shipping|Win32.ActiveCfg = Release|Win32
+		{7CDBFE86-A92E-4BB3-AA04-C3DC4D70EC45}.Shipping|Win32.Build.0 = Release|Win32
+		{97E8EAAA-7115-406C-9F98-DD88CAB931F2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{97E8EAAA-7115-406C-9F98-DD88CAB931F2}.Debug|Win32.Build.0 = Debug|Win32
+		{97E8EAAA-7115-406C-9F98-DD88CAB931F2}.Release|Win32.ActiveCfg = Release|Win32
+		{97E8EAAA-7115-406C-9F98-DD88CAB931F2}.Release|Win32.Build.0 = Release|Win32
+		{97E8EAAA-7115-406C-9F98-DD88CAB931F2}.Shipping|Win32.ActiveCfg = Release|Win32
+		{97E8EAAA-7115-406C-9F98-DD88CAB931F2}.Shipping|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
