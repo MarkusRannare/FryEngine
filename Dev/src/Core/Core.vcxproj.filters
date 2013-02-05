@@ -167,6 +167,9 @@
     <ClInclude Include="log_private_types.h">
       <Filter>Header Files\Datatypes</Filter>
     </ClInclude>
+    <ClInclude Include="stack.h">
+      <Filter>Header Files\Datatypes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />

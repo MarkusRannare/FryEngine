@@ -64,8 +64,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)../Intermediate/core/$(Configuration);$(SolutionDir)../Intermediate/fry_script/$(Configuration);$(SolutionDir)../external/unittest++/</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fry_script.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;UnitTest++.vsnet2005-$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)../Intermediate/WinImp/$(Configuration);$(SolutionDir)../Intermediate/core/$(Configuration);$(SolutionDir)../Intermediate/fry_script/$(Configuration);$(SolutionDir)../external/unittest++/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>WinImp.lib;core.lib;fry_script.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;UnitTest++.vsnet2005-$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>$(TargetPath)</Command>
@@ -90,8 +90,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)../Intermediate/core/$(Configuration);$(SolutionDir)../Intermediate/fry_script/$(Configuration);$(SolutionDir)../external/unittest++/</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fry_script.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;UnitTest++.vsnet2005-$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)../Intermediate/WinImp/$(Configuration);$(SolutionDir)../Intermediate/core/$(Configuration);$(SolutionDir)../Intermediate/fry_script/$(Configuration);$(SolutionDir)../external/unittest++/</AdditionalLibraryDirectories>
+      <AdditionalDependencies>WinImp.lib;core.lib;fry_script.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;UnitTest++.vsnet2005-$(Configuration).lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>$(TargetPath)</Command>

@@ -150,6 +150,7 @@
     <ClInclude Include="OutputStream.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="Semaphore.h" />
+    <ClInclude Include="stack.h" />
     <ClInclude Include="string_stream.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="temp_allocator.h" />

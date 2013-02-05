@@ -84,12 +84,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bytecodes.h" />
-    <ClInclude Include="bytecode_generator.h" />
-    <ClInclude Include="fry_script.h" />
+    <ClInclude Include="interpreter.h" />
+    <ClInclude Include="interpreter_types.h" />
+    <ClInclude Include="opcodes.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="bytecode_generator.cpp" />
-    <ClCompile Include="fry_script.cpp" />
+    <ClCompile Include="interpreter.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
