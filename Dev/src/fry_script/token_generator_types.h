@@ -4,7 +4,7 @@
 namespace fry_script
 {
 	/// Largest size of a allowed token
-	const s32 MaxTokenSize = 255;
+	const s32 MAX_TOKEN_SIZE = 255;
 
 	/// Struct that describes the tokens generated from GenerateTokens
 	/// It contains a pointer into the char* Code that is sent into the
@@ -15,16 +15,18 @@ namespace fry_script
 		u32	Length;
 	};
 
-	/// The state of a TokenGenerator (for multithread support)
+	/// The state of a TokenGenerator (for multithreading support)
 	struct TokenGenerator
 	{
 		TokenGenerator() :
-			CurrentIndex( 0 )
+			_CurrentIndex( 0 )
 		{
 		}
 
-		int CurrentIndex;
-		char TempToken[MaxTokenSize];
+		/// When using GetNextToken, use this to know what the next token is
+		int _CurrentIndex;
+		/// Temporary buffer that holds the current token
+		char _TempToken[MAX_TOKEN_SIZE];
 	};
 }
 

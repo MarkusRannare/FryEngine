@@ -14,8 +14,11 @@ namespace fry_script
 		/// \param out_Tokens - the tokes generated from Code
 		bool GenerateTokens( const char* Code, foundation::Array<GeneratedToken>& out_Tokens );
 
-		/// Copies a single token
+		/// Copies the next token in Tokens to out_NextToken
 		bool GetNextToken( TokenGenerator* Generator, foundation::Array<GeneratedToken>& Tokens, const char** out_NextToken );
+
+		/// Returns true if the token is a whitespace
+		inline bool IsWhitespace( char Token );
 	}
 }
 
