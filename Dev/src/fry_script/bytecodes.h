@@ -8,9 +8,12 @@ typedef u8 bytecode_t;
 
 namespace fry_script
 {
-	#define OP_CODE(NAME, ID) const opcode_t NAME = ID
-	#include "opcodes.h"
-	#undef OP_CODE	
+	enum EOPCodes
+	{
+#define OP_CODE(NAME, ID) OC_##NAME = ID,
+#include "opcodes.h"
+#undef OP_CODE			
+	};
 }
 
 #endif

@@ -87,6 +87,7 @@
     <ClInclude Include="interpreter.h" />
     <ClInclude Include="interpreter_types.h" />
     <ClInclude Include="opcodes.h" />
+    <ClInclude Include="stack_manipulation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="interpreter.cpp" />

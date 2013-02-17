@@ -5,18 +5,22 @@
 
 namespace fry_script
 {
+	#define OP_ARGS bytecode_t** ByteCode, foundation::Array<u8>& Stack
+	
 	namespace interpreter
 	{
-		/// Initializes a interpreter
-		void Init( Interpreter& Interpreter );
-
-		/// Deallocates the interpreter and cleanups all mess
-		/// it has created
-		void Shutdown( Interpreter& Interpreter );
-
 		/// Runs the code provided, make sure to size-check it, it will just
 		/// run enough commands
-		bool Run( Interpreter& Interpreter, u8* Code, int Size );
+		bool Run( Interpreter& Interpreter, const bytecode_t* Code, u32 Size );
+
+		/// @TODO: Check the performance-gain on inlining
+		inline bool PushI( OP_ARGS );
+		
+		/// @TODO: Check the performance-gain on inlining
+		inline bool AddI( OP_ARGS );
+
+		/// @TODO: Check the performance-gain on inlining
+		inline bool InvalidOp( OP_ARGS );
 	}
 }
 

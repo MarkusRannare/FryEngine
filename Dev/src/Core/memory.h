@@ -94,6 +94,7 @@ namespace foundation
 		inline const void *pointer_add(const void *p, uint32_t bytes);
 		inline void *pointer_sub(void *p, uint32_t bytes);
 		inline const void *pointer_sub(const void *p, uint32_t bytes);
+		inline void mem_zero( void* P, u32 Size );
 	}
 
 	// ---------------------------------------------------------------
@@ -126,5 +127,10 @@ namespace foundation
 
 	inline const void *memory::pointer_sub(const void *p, uint32_t bytes)	{
 		return (const void*)((const char *)p - bytes);
+	}
+
+	inline void memory::mem_zero( void* P, u32 Size )
+	{
+		memset( P, 0, Size );
 	}
 }

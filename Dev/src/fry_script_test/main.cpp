@@ -2,77 +2,69 @@
 
 #include <core/stack.h>
 #include <fry_script/interpreter.h>
+#include <fry_script/stack_manipulation.h>
 
 using namespace foundation;
 using namespace fry_core;
 using namespace fry_script;
 
-#define APPEND_INT( BYTECODE, INTEGER ) \
-{ \
-	s32 Integer = INTEGER; \
-	u8* IntPtr = stack::Increment( BYTECODE, sizeof(s32) ); \
-	memcpy_s( IntPtr, sizeof(s32), &Integer, sizeof(s32) ); \
-}
-
-#define APPEND_BYTE( BYTECODE, BYTE ) \
-{ \
-	array::push_back( BYTECODE, (u8)BYTE ); \
-}
-
-#define APPEND_OPCODE( BYTECODE, OP_CODE ) \
-{ \
-	array::push_back( BYTECODE, OP_CODE ); \
-}
-
-// TODO: Add helper functions to fetch parameters from the stack
-
 struct InterpreterCleanSetup
 {
 	InterpreterCleanSetup() :
 		Interp( memory_globals::default_allocator() ),
-		Bytecode( memory_globals::default_allocator() )
+		Bytecode( memory_globals::default_allocator() ),
+		Stack( Interp._Stack )
 	{
-		interpreter::Init( Interp );
 	}
 
 	~InterpreterCleanSetup()
 	{
-		interpreter::Shutdown( Interp );
 	}
+
+#pragma warning( disable: 4100 )
+	InterpreterCleanSetup& operator=( const InterpreterCleanSetup& Other )
+	{
+		// Should never be here, but can't use CHECK as FRY_CORE::CHECK conflicts with C++TEST::CHECK
+		return *this;
+	}
+#pragma warning( default: 4100 )
 
 	Interpreter Interp;
 	Array<u8> Bytecode;
+	// Helper to prevent us from typing Interp._Stack all the time
+	Array<u8>& Stack;
 };
-
 
 SUITE( InterpreterPushI )
 {
 	TEST_FIXTURE( InterpreterCleanSetup, PushI0 )
 	{
-		CHECK_EQUAL( (unsigned)0, array::size( Interp._Stack ) );
+		CHECK_EQUAL( (unsigned)0, array::size( Stack ) );
 
-		APPEND_OPCODE( Bytecode, PushI );
-		APPEND_INT( Bytecode, 0 );
+		ADD_CONSTANT( Bytecode, u8, (u8)fry_script::OC_PushI );
+		ADD_CONSTANT( Bytecode, s32, 0 );
 
 		bool Result = interpreter::Run( Interp, array::begin( Bytecode ), array::size( Bytecode ) );
 
 		CHECK( Result );
-		CHECK_EQUAL( (unsigned)4, array::size( Interp._Stack ) );
-		CHECK_EQUAL( 0, Interp._Stack[0] );
+		CHECK_EQUAL( (unsigned)4, array::size( Stack ) );
+		GET_ITEM( Stack, s32, PushResult );
+		CHECK_EQUAL( 0, PushResult );
 	}
 
 	TEST_FIXTURE( InterpreterCleanSetup, PushI666 )
 	{
-		CHECK_EQUAL( (unsigned)0, array::size( Interp._Stack ) );
+		CHECK_EQUAL( (unsigned)0, array::size( Stack ) );
 
-		APPEND_OPCODE( Bytecode, PushI );
-		APPEND_INT( Bytecode, 666 );
+		ADD_CONSTANT( Bytecode, u8, (u8)fry_script::OC_PushI );
+		ADD_CONSTANT( Bytecode, s32, 666 );
 		
 		bool Result = interpreter::Run( Interp, array::begin( Bytecode ), array::size( Bytecode ) );
 
 		CHECK( Result );
-		CHECK_EQUAL( (unsigned)4, array::size( Interp._Stack ) );
-		CHECK_ARRAY_EQUAL( &Bytecode[1], array::begin( Interp._Stack ), 4 );
+		CHECK_EQUAL( (unsigned)4, array::size( Stack ) );
+		GET_ITEM( Stack, s32, PushResult );
+		CHECK_EQUAL( 666, PushResult );
 	}
 }
 
@@ -80,36 +72,35 @@ SUITE( InterpreterAddI )
 {
 	TEST_FIXTURE( InterpreterCleanSetup, AddI00 )
 	{
-		APPEND_OPCODE( Bytecode, PushI );
-		APPEND_INT( Bytecode, 0 );
-		APPEND_OPCODE( Bytecode, PushI );
-		APPEND_INT( Bytecode, 0 );
-		APPEND_OPCODE( Bytecode, AddI );
+		ADD_CONSTANT( Bytecode, u8, (u8)fry_script::OC_PushI );
+		ADD_CONSTANT( Bytecode, s32, 0 );
+		ADD_CONSTANT( Bytecode, u8, (u8)fry_script::OC_PushI );
+		ADD_CONSTANT( Bytecode, s32, 0 );
+		ADD_CONSTANT( Bytecode, u8, (u8)fry_script::OC_AddI );
 
 		bool Result = interpreter::Run( Interp, array::begin( Bytecode ), array::size( Bytecode ) );
 
 		CHECK( Result );
-		CHECK_EQUAL( (unsigned)4, array::size( Interp._Stack ) );
-		CHECK_EQUAL( 0, Interp._Stack[0] );
+		CHECK_EQUAL( (unsigned)4, array::size( Stack ) );
+		GET_ITEM( Stack, s32, ResultValue );
+		CHECK_EQUAL( 0, ResultValue );
 	}
 
 	TEST_FIXTURE( InterpreterCleanSetup, AddI42666 )
 	{
-		Array<u8> Bytecode( memory_globals::default_allocator() );
-		APPEND_OPCODE( Bytecode, PushI );
-		APPEND_INT( Bytecode, 42 );
-		APPEND_OPCODE( Bytecode, PushI );
-		APPEND_INT( Bytecode, 666 );
-		APPEND_OPCODE( Bytecode, AddI );
+		ADD_CONSTANT( Bytecode, u8, (u8)fry_script::OC_PushI );
+		ADD_CONSTANT( Bytecode, s32, 42 );
+		ADD_CONSTANT( Bytecode, u8, (u8)fry_script::OC_PushI );
+		ADD_CONSTANT( Bytecode, s32, 666 );
+		ADD_CONSTANT( Bytecode, u8, (u8)fry_script::OC_AddI );
 
 		bool Result = interpreter::Run( Interp, array::begin( Bytecode ), array::size( Bytecode ) );
 
-		s32 ResultOnStack = -1;
-		memcpy_s( &ResultOnStack, sizeof(ResultOnStack), array::begin( Interp._Stack ), array::size( Interp._Stack ) );
-
 		CHECK( Result );
-		CHECK_EQUAL( (unsigned)4, array::size( Interp._Stack ) );
-		CHECK_EQUAL( 708, ResultOnStack );
+		CHECK_EQUAL( (unsigned)4, array::size( Stack ) );
+
+		GET_ITEM( Stack, s32, ResultValue );
+		CHECK_EQUAL( 708, ResultValue );
 	}
 }
 

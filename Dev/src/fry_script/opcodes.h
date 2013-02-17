@@ -1,6 +1,6 @@
-OP_CODE(PushI,1);
+OP_CODE(PushI,0)
 //PushF
 //PushB
-OP_CODE(AddI,2);
+OP_CODE(AddI,1)
 //AddB
 //AddF
