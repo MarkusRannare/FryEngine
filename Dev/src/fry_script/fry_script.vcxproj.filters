@@ -33,9 +33,18 @@
     <ClInclude Include="stack_manipulation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="token_generator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="token_generator_types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="interpreter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="token_generator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

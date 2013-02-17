@@ -88,9 +88,12 @@
     <ClInclude Include="interpreter_types.h" />
     <ClInclude Include="opcodes.h" />
     <ClInclude Include="stack_manipulation.h" />
+    <ClInclude Include="token_generator.h" />
+    <ClInclude Include="token_generator_types.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="interpreter.cpp" />
+    <ClCompile Include="token_generator.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

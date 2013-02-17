@@ -13,6 +13,10 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="interpretor_tests.h" />
+    <ClInclude Include="token_generator_tests.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{97E8EAAA-7115-406C-9F98-DD88CAB931F2}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
